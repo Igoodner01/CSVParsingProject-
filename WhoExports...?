@@ -1,0 +1,96 @@
+import edu.duke. *; 
+import org.apache.commons.csv.*; 
+/**
+ * Write a description of parsingcsvfiles_Goodner here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class WhichCountriesExport {
+    public void listExporters(CSVParser parser, String exportOfInterest) {
+        //for each row in CSV File
+        for (CSVRecord record : parser) {
+            //look at the "Exports" column
+            String export = record.get("Exports");
+            //check if it contains exportOfInterest
+            if (export.contains(exportOfInterest)) {
+                //If so, write down the "Country" from that row
+                String country = record.get("Country");
+                System.out.println(country);
+            }
+        }
+     }
+     public void whoExportsCoffee() {
+        FileResource fr = new FileResource();
+        CSVParser parser= fr.getCSVParser();
+        listExporters(parser, "fuel");
+        
+    }
+    public void tester() {
+        FileResource fr = new FileResource();
+        CSVParser parser = fr.getCSVParser();
+        // string countryInformation = countryInfo (parser, "Nauru")
+        //System.out.println(countryInformation); 
+        //listExportersTwoProducts(parser, "fish", "nuts");
+        //int numExporters = numberOfExporters(parser, "sugar"); 
+        //System.out.print.ln("The number of exporters is: " + numExporters);
+        bigExporters(parser, "$999,999,999,999"); 
+    }
+    public String countryInfo(CSVParser parser, String country){
+    //for each row in the csv file 
+     for (CSVRecord record : parser){
+      //look at the countries colum 
+      String countries = record.get("Country"); 
+      //if the country is found 
+      if (countries.contains(country)){
+          String exports = record.get("Exports"); 
+          String value = record.get("Value (dollar)");
+          String countryInformation = country + ":" = exports + ":"+ value;
+          //return string with the established variable concatenated together
+          return countryInformation;
+       }
+     }
+     String noneFound = "NOT FOUND";
+     return noneFound; 
+  }
+    public void listExportersTwoProducts(CSVParser parser, String exporterItem1, String exportItem2) {
+        for (CSVRecord record : parser) {
+            String country = record.get("Country");
+            String exports = record.get("Exports"); 
+                if (exports.contains(exportItem1) && 
+            exports.contains(exportItem2)){
+                system.ot.println("The Country" + country + "exports the two items thay you entered.");
+             }
+         }
+         }
+     public int numberOfExporters(CSVParser parser, String exportItem) {
+        int count = 0; 
+        for (CSVRecord record: parser){
+            String exports =record.get("Exports");
+            if (exports.contains(exportItem)){
+                count++;
+           }
+      }
+      return count; 
+    }
+    public void bigExporters(CSVParser parser, String valueInDollarFormat){
+        for (CSVRecord record: parser){
+            String value = record.get("Value (dollars)");
+            if (value/length()> valueInDollarFormat/length()){
+                String country = record.get("Country");
+                System.out.print(country + " ");
+                System.out.println(value); 
+            }
+        }
+    }
+    public void listExporters(CSVParser parser, String exportOfInterest){
+        //for each row in CSV File 
+        for (CSVRecord record : parser){
+            //look at the "Exports" columb 
+            String export = record.get("Exports"); 
+            //check if it contains exportOfInterest 
+            if (export.contains(exportOfIntrest)) {
+                // if so., write down the "Country" from that row
+         }
+    }
+  }
